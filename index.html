@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date Invitation</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="scene-effects" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <main class="app-shell">
+      <section class="screen active" data-screen="ask">
+        <div class="sparkles" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <p class="eyebrow">A tiny serious question</p>
+        <h1>do you wanna date with me?</h1>
+        <div class="choice-row" id="choiceRow">
+          <button class="btn primary" id="yesBtn" type="button">yes</button>
+          <button class="btn ghost runaway" id="noBtn" type="button">no</button>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="tease">
+        <p class="eyebrow">Oh?</p>
+        <h2>You actually want to go on a date with me?</h2>
+        <p class="tease-copy">How bold of you.</p>
+        <button class="btn primary" id="teaseNextBtn" type="button">pick a date</button>
+      </section>
+
+      <section class="screen" data-screen="calendar">
+        <p class="eyebrow">Step 2</p>
+        <h2>When are you free?</h2>
+        <label class="field">
+          <span>Pick a date</span>
+          <input id="dateInput" type="date" />
+        </label>
+        <div class="nav-row">
+          <button class="btn ghost" data-back="ask" type="button">back</button>
+          <button class="btn primary" id="dateNextBtn" type="button">next</button>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="details">
+        <p class="eyebrow">Step 3</p>
+        <h2>Where should we go?</h2>
+        <label class="field">
+          <span>Place</span>
+          <input id="placeInput" type="text" placeholder="cinema, beach, museum..." />
+        </label>
+        <label class="field">
+          <span>Food</span>
+          <input id="foodInput" type="text" placeholder="hotpot, sushi, dessert..." />
+        </label>
+        <div class="nav-row">
+          <button class="btn ghost" data-back="calendar" type="button">back</button>
+          <button class="btn primary" id="submitBtn" type="button">book date</button>
+        </div>
+      </section>
+
+      <section class="screen success" data-screen="success">
+        <div class="confetti" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <p class="eyebrow">Booked</p>
+        <h2>Don't expect the reservation would be successful</h2>
+        <div class="summary" id="summary"></div>
+        <p class="tease-copy">Guess whether I'll show up.</p>
+        <button class="btn ghost" id="restartBtn" type="button">start over</button>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
