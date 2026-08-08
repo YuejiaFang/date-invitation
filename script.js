@@ -32,23 +32,31 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function runAway() {
-    if (!noBtn) return;
+  if (!noBtn) return;
 
-    const padding = 18;
-    const activeScreen = document.querySelector('.screen[data-screen="ask"]');
-    if (!activeScreen) return;
+  const padding = 24;
+  const activeScreen = document.querySelector('.screen[data-screen="ask"]');
+  if (!activeScreen) return;
 
-    const bounds = activeScreen.getBoundingClientRect();
-    const maxX = bounds.right - noBtn.offsetWidth - padding;
-    const maxY = bounds.bottom - noBtn.offsetHeight - padding;
+  const bounds = activeScreen.getBoundingClientRect();
+  const buttonWidth = noBtn.offsetWidth || 128;
+  const buttonHeight = noBtn.offsetHeight || 50;
 
-    const x = bounds.left + padding + Math.random() * Math.max(0, maxX - bounds.left - padding);
-    const y = bounds.top + padding + Math.random() * Math.max(0, maxY - bounds.top - padding);
+  const minX = bounds.left + padding;
+  const maxX = bounds.right - buttonWidth - padding;
+  const minY = bounds.top + padding;
+  const maxY = bounds.bottom - buttonHeight - padding;
 
-    noBtn.style.position = "fixed";
-    noBtn.style.left = `${x}px`;
-    noBtn.style.top = `${y}px`;
-  }
+  const x = minX + Math.random() * Math.max(0, maxX - minX);
+  const y = minY + Math.random() * Math.max(0, maxY - minY);
+
+  noBtn.style.position = "fixed";
+  noBtn.style.left = `${x}px`;
+  noBtn.style.top = `${y}px`;
+  noBtn.style.zIndex = "20";
+  noBtn.style.display = "inline-grid";
+  noBtn.style.visibility = "visible";
+}
 
   function requireValue(input, message) {
     if (!input) return true;
