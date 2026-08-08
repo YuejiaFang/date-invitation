@@ -158,10 +158,6 @@ document.addEventListener("DOMContentLoaded", () => {
           showScreen("success");
         }
 
-        if (mailLink) {
-          mailLink.href = "#";
-        }
-
         showScreen("success");
       } catch (error) {
         console.error(error);
