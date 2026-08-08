@@ -123,9 +123,7 @@ submitBtn.addEventListener("click", async () => {
   const valid =
     requireValue(dateInput, "Please pick a date first.") &&
     requireValue(placeInput, "Please enter where you want to go.") &&
-    requireValue(foodInput, "Please enter what you want to eat.") &&
-    requireValue(emailInput, "Please enter an email address.") &&
-    emailInput.reportValidity();
+    requireValue(foodInput, "Please enter what you want to eat.");
 
   if (!valid) return;
 
@@ -133,7 +131,6 @@ submitBtn.addEventListener("click", async () => {
     date: formatDate(dateInput.value),
     place: placeInput.value.trim(),
     food: foodInput.value.trim(),
-    email: emailInput.value.trim(),
   };
 
   submitBtn.disabled = true;
@@ -146,10 +143,9 @@ submitBtn.addEventListener("click", async () => {
       <p><strong>Date:</strong> ${details.date}</p>
       <p><strong>Place:</strong> ${details.place}</p>
       <p><strong>Food:</strong> ${details.food}</p>
-      <p><strong>Email:</strong> ${details.email}</p>
     `;
 
-    mailLink.href = buildEmailHref(details);
+    mailLink.href = "#";
     showScreen("success");
   } catch (error) {
     console.error(error);
@@ -164,7 +160,6 @@ restartBtn.addEventListener("click", () => {
   dateInput.value = "";
   placeInput.value = "";
   foodInput.value = "";
-  emailInput.value = "";
   noBtn.removeAttribute("style");
   showScreen("ask");
 });
