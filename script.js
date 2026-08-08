@@ -153,8 +153,9 @@ document.addEventListener("DOMContentLoaded", () => {
             <p><strong>Date:</strong> ${details.date}</p>
             <p><strong>Place:</strong> ${details.place}</p>
             <p><strong>Food:</strong> ${details.food}</p>
-            ${details.email ? `<p><strong>Email:</strong> ${details.email}</p>` : ""}
+            
           `;
+          showScreen("success");
         }
 
         if (mailLink) {
