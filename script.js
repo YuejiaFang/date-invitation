@@ -153,7 +153,7 @@ submitBtn.addEventListener("click", async () => {
     showScreen("success");
   } catch (error) {
     console.error(error);
-    alert("booking notification fail");
+    alert(error.message || "Booking notification failed");
   } finally {
     submitBtn.disabled = false;
     submitBtn.textContent = "book date";
